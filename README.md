@@ -21,7 +21,7 @@ git clone https://github.com/WiiniSilva/LH_CD_WINICIUS_SILVA.git
 # importar a biblioteca pickle
 import pickle
 
-# carregar o modelo de um arquivo
+# carregar o modelo pkl
 with open('xgb_model.pkl', 'rb') as file:
   xgb_r = pickle.load(file)
 ```
