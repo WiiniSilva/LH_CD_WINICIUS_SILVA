@@ -61,29 +61,29 @@ Sim, existe. Como você poderá ver no gráfico gerado no código presente no ju
       funções de perda para diferentes problemas de regressão,
       classificação ou ranking.
 
-      * Usa o poder do processamento paralelo, o que torna o
+    * Usa o poder do processamento paralelo, o que torna o
         treinamento e a inferência mais rápidos e eficientes.
 
-      * Suporta regularização, que é uma técnica para reduzir o
+    * Suporta regularização, que é uma técnica para reduzir o
         sobreajuste e melhorar a generalização do modelo.
 
-      * Tem uma implementação escalável e de alta performance, que
+    * Tem uma implementação escalável e de alta performance, que
         pode lidar com grandes e complexos conjuntos de dados.
 
 * Contras do modelo XGBoost:
 
-      * É mais complexo do que outros modelos de regressão, pois requer
+    * É mais complexo do que outros modelos de regressão, pois requer
         mais ajustes de parâmetros e mais cuidado com a escolha da
         função de perda e da taxa de aprendizado.
 
-      * Pode sofrer de sobreajuste, especialmente se o número de árvores
+    * Pode sofrer de sobreajuste, especialmente se o número de árvores
         for muito alto ou se os dados forem ruidosos ou esparsos.
 
-      * Usa mais memória do que o outros modelos menos complexos,
+    * Usa mais memória do que o outros modelos menos complexos,
         pois armazena todas as árvores na memória durante o
         treinamento e a inferência.
 
-      * É menos transparente do que modelos como Decision tree e
+    * É menos transparente do que modelos como Decision tree e
         random forest, pois é mais difícil interpretar o significado e a
         importância das árvores individuais e dos seus nós.
 
@@ -121,7 +121,7 @@ Sim, existe. Como você poderá ver no gráfico gerado no código presente no ju
  'reviews_por_mes': 0.38,
 
  'calculado_host_listings_count': 2,
- 
+
  'disponibilidade_365': 355}
 
 Qual seria a sua sugestão de preço?
