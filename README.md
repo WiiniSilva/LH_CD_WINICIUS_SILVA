@@ -28,22 +28,22 @@ Sim, o número mínimo de noites e a disponibilidade ao longo do ano interferem 
     c.	Existe algum padrão no texto do nome do local para lugares de mais alto valor?
 
 
-Sim, existe. Como você podemos ver no gráfico gerado no código presente no jupyter notebook, os locais com certos padrões de nome, como ‘NearWilliamsburg’, ‘Film’ ou ‘Fulton’, têm preços médios mais altos do que outros, como ‘Carol’ ou ‘SuperBowl’. Esses padrões de nome podem indicar locais mais sofisticados ou de qualidade superior, que levam a preços mais elevados.
+Sim, existe. Como você poderá ver no gráfico gerado no código presente no jupyter notebook, os locais com certos padrões de nome, como ‘NearWilliamsburg’, ‘Film’ ou ‘Fulton’, têm preços médios mais altos do que outros, como ‘Carol’ ou ‘SuperBowl’. Esses padrões de nome podem indicar locais mais sofisticados ou de qualidade superior, que levam a preços mais elevados.
 
 
 3.	Explique como você faria a previsão do preço a partir dos dados. Quais variáveis e/ou suas transformações você utilizou e por quê? Qual tipo de problema estamos resolvendo (regressão, classificação)? Qual modelo melhor se aproxima dos dados e quais seus prós e contras? Qual medida de performance do modelo foi escolhida e por quê?
 
 
-*	Para prever o preço dos imóveis, eu fiz um pré-processamento dos dados, removendo ou agrupando as colunas que não eram importantes ou que tinham muita variação. Por exemplo, eu removi o nome do anúncio, o id do anfitrião, id, host_name e bairro.Também removi os valores muito altos ou muito baixos que podiam distorcer o modelo, como os preços acima de 400 dólares, que eram outliers frequentes nos preços dos alugueis.
+*	Para prever o preço dos imóveis, foi feito um pré-processamento dos dados, removendo ou agrupando as colunas que não eram importantes ou que tinham muita variação. Por exemplo, foram removidas as features, nome do anúncio, o id do anfitrião, id, host_name e bairro.Também removi os valores muito altos ou muito baixos que podiam distorcer o modelo, como os preços acima de 400 dólares, que eram outliers frequentes nos preços dos alugueis.
 
 
-*	Depois, eu selecionei as variáveis que tinham mais relação com o preço, usando a matriz de correlação. Eu também transformei as variáveis categóricas em numéricas, usando o LabelEncoder e criando variáveis dummy com o hot encoder.
+*	Depois, foram selecionadas as variáveis que tinham mais relação com o preço, usando a matriz de correlação. Também foram transformadas as variáveis categóricas em numéricas, usando o LabelEncoder e criando variáveis dummy com o hot encoder.
 
 
-*	Em seguida, eu testei quatro modelos de regressão diferentes: Regressão Linear Múltipla, XGBoost, Regressão com Random Forest e Regressão com Vetores de Suporte. A regressão é um tipo de problema que tenta prever um valor contínuo, como o preço, a partir de outras variáveis.
+*	Em seguida, quatro modelos de regressão diferentes foram testados: Regressão Linear Múltipla, XGBoost, Regressão com Random Forest e Regressão com Vetores de Suporte. A regressão é um tipo de problema que tenta prever um valor contínuo, como o preço de alugueis de imóveis, a partir de outras variáveis.
 
 
-*	Para escolher o melhor modelo, eu usei o MAPE que calcula a média dos erros percentuais entre os valores reais e previstos de um modelo de regressão, o coeficiente de determinação (R²), que mede o quanto o modelo consegue explicar a variação do preço, e o erro quadrático médio (MSE) e o erro quadrático médio raiz (RMSE), que medem o quanto o modelo erra nas previsões.
+*	Para escolher o melhor modelo, as metricas usadas foram: o MAPE que calcula a média dos erros percentuais entre os valores reais e previstos de um modelo de regressão, o coeficiente de determinação (R²), que mede o quanto o modelo consegue explicar a variação do preço, e o erro quadrático médio (MSE) e o erro quadrático médio raiz (RMSE), que medem o quanto o modelo erra nas previsões.
 
 
 *	Dos modelos de regressão testados, os que obteve o melhores resultados foram o Random Forest, que usa várias árvores de decisão para fazer as previsões. Esse modelo teve um MAPE de 28.54%, um R² de 0.55, um MSE de 2797.53 e um RMSE de 52.91. O modelo XGBoost, que também é baseado em árvores de decisão e que utiliza uma técnica chamada de gradient boosting, teve um MAPE de 28.66%, um R² de 0.55, um MSE de 2788.53 e um RMSE de 52.81. Ambos os modelos tiveram resultados semelhantes, sendo considerados um empate técnico, mas eu escolhi usar o XGBoost por ter um tempo menor de treinamento.
@@ -56,6 +56,7 @@ Sim, existe. Como você podemos ver no gráfico gerado no código presente no ju
 
 
 * Prós do modelo XGBoost:
+
     * Altamente flexível, pois permite ajustar vários parâmetros e
       funções de perda para diferentes problemas de regressão,
       classificação ou ranking.
@@ -70,6 +71,7 @@ Sim, existe. Como você podemos ver no gráfico gerado no código presente no ju
         pode lidar com grandes e complexos conjuntos de dados.
 
 * Contras do modelo XGBoost:
+
       * É mais complexo do que outros modelos de regressão, pois requer
         mais ajustes de parâmetros e mais cuidado com a escolha da
         função de perda e da taxa de aprendizado.
@@ -91,20 +93,35 @@ Sim, existe. Como você podemos ver no gráfico gerado no código presente no ju
 4.	Supondo um apartamento com as seguintes características:
 
 {'id': 2595,
+
  'nome': 'Skylit Midtown Castle',
+
  'host_id': 2845,
+
  'host_name': 'Jennifer',
+
  'bairro_group': 'Manhattan',
+
  'bairro': 'Midtown',
+
  'latitude': 40.75362,
+
  'longitude': -73.98377,
+
  'room_type': 'Entire home/apt',
+
  'price': 225,
+
  'minimo_noites': 1,
+
  'numero_de_reviews': 45,
+
  'ultima_review': '2019-05-21',
+
  'reviews_por_mes': 0.38,
+
  'calculado_host_listings_count': 2,
+ 
  'disponibilidade_365': 355}
 
 Qual seria a sua sugestão de preço?
